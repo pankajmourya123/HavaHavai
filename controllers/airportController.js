@@ -5,7 +5,7 @@ import catchAsyncError from '../middlewares/catchAsyncError.js'; // Error handle
 export const getAirPortByIatacode = catchAsyncError(async (req, res, next) => {
     const { iata_code } = req.query; // Extract the IATA code from the query parameters
 
-    console.log("Querying for IATA code:", iata_code);
+    
 
     // Find the airport by IATA code (case insensitive)
     const airport = await Airport.findOne({ iata_code: new RegExp(`^${iata_code}$`, 'i') });
